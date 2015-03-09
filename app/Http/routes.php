@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+
+Route::get('nothing', function() {
+	return "Does nothing.";
+});
