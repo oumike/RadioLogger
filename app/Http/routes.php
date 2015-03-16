@@ -11,8 +11,4 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('nothing', function() {
-	return "Does nothing.";
-});
+Route::get('/', 'FrontController@show');
