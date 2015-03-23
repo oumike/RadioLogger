@@ -1,7 +1,5 @@
 <html>
 
-Many things you can do here :
-
-Make observations, make stations, make shows, view all of them, edit them, delete them, party with them.
+    <a href="{{ URL::to('observation') }}" />Observation</a>
 
 </html>

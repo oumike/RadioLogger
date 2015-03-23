@@ -5,7 +5,7 @@ CREATE TABLE show
   description character varying(200),
   usual_language character varying(50),
   CONSTRAINT show_pkey PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE station
 (
@@ -13,7 +13,7 @@ CREATE TABLE station
   name character varying(50),
   description character varying(200),
   CONSTRAINT station_pkey PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE observation
 (
@@ -27,5 +27,5 @@ CREATE TABLE observation
   source character varying(50),
   datetime timestamp without time zone,
   CONSTRAINT observation_pkey PRIMARY KEY (id)
-)
+);
 
