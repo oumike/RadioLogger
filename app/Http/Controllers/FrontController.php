@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\View;
 class FrontController extends BaseController
 {
 
-    public function show()
+    public function index()
     {
-        return view('views.front');
+        return view('front');
     }
 
 }

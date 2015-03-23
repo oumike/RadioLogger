@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Hello
+    <a href="/observation">Observation</a>
 
 @stop
