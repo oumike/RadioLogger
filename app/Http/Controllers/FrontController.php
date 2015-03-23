@@ -9,7 +9,7 @@ class FrontController extends BaseController
 
     public function show()
     {
-        return view('front');
+        return view('views.front');
     }
 
 }
