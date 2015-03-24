@@ -27,8 +27,8 @@
     <!-- List of observations from today here -->
     {!! Form::open(array('name' => 'addObservationForm', 'id' => 'addObservationForm', 'action' => 'ObservationController@add')) !!}
         <label>Frequency: </label>{!! Form::text('frequency') !!}<br />
-        <label>Station ID: </label>{!! Form::select('status_id', $stations) !!} <br />
-        <label>Sechedule ID: </label>{!! Form::select('schedule_id', $schedules) !!}<br />
+        <label>Station: </label>{!! Form::select('status_id', $stations) !!} <br />
+        <label>Sechedule: </label>{!! Form::select('schedule_id', $schedules) !!}<br />
         <label>Strength: </label>{!! Form::select('strength', $strength) !!}<br />
         <label>Description: </label>{!! Form::textarea('description') !!}<br />
         <label>Source: </label>{!! Form::select('source', $sources) !!}<br />
