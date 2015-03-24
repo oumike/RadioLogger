@@ -7,7 +7,14 @@ class ObservationController extends BaseController
 
 	public function index()
 	{
-		return view('observation');
+		$stations = array('Voice of America', 'Radio Free China', 'Radio India');
+
+		return view('observation')->with('stations', $stations);
+	}
+
+	public function add()
+	{
+
 	}
 
 }
