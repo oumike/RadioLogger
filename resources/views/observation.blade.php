@@ -8,7 +8,11 @@
         $(document).ready(function() {
 
             $('#addObservation').click(function() {
-                alert('hello')
+                $('#addObservationForm').submit()
+            })
+
+            $('#getNow').click(function() {
+                alert('this should populate the datetime with a now timestamp')
             })
 
         })
@@ -21,19 +25,18 @@
 
 
     <!-- List of observations from today here -->
-
-    <form method="post">
+    {!! Form::open(array('name' => 'addObservationForm', 'id' => 'addObservationForm', 'action' => 'ObservationController@add')) !!}
         <label>Frequency: </label>{!! Form::text('frequency') !!}<br />
         <label>Station ID: </label>{!! Form::select('status_id', $stations) !!} <br />
-        <label>Sechedule ID: </label><input name="schedule_id"><br />
-        <label>Strength: </label><input name="strength"><br />
-        <label>Description: </label><input name="description"><br />
-        <label>Source: </label><input name="source"><br />
-        <lable>Date/Time: </lable><input name="datetime"><br />
+        <label>Sechedule ID: </label>{!! Form::select('schedule_id', $schedules) !!}<br />
+        <label>Strength: </label>{!! Form::select('strength', $strength) !!}<br />
+        <label>Description: </label>{!! Form::textarea('description') !!}<br />
+        <label>Source: </label>{!! Form::select('source', $sources) !!}<br />
+        <lable>Date/Time: </lable>{!! Form::text('datetime', $now) !!} <input type="button" value="Now" id="getNow" name="getNow" /><br />
 
         {!! Form::hidden('_token', csrf_token()) !!}
 
-    </form>
+    {!! Form::close() !!}
 
     <input type="button" value="Add" id="addObservation" name="addObservation" />
 
