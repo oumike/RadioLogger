@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use DateTime;
+use App\Station;
 
 class ObservationController extends BaseController
 {
 
 	public function index()
 	{
-		$stations = array('Voice of America', 'Radio Free China', 'Radio India');
+
+		$stationsAll = Station::all();
+
+		foreach ($stationsAll as $station) {
+			$stations[] = $station->name;
+		}
+
 		$schedules = array('Cojo Guide to Shortwave', 'Hammertown Shortwave');
 		$strength = range(1,5);
 		$sources = array('US', 'China', 'Japan');

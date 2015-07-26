@@ -1,6 +1,12 @@
+drop table radioshow;
+drop table station;
+drop table observation;
+
 CREATE TABLE radioshow
 (
   id integer NOT NULL AUTO_INCREMENT,
+  created_at timestamp NULL,
+  updated_at timestamp NULL,
   name varchar(50) NULL,
   description varchar(200) NULL,
   language varchar(50) NULL,
@@ -10,6 +16,8 @@ CREATE TABLE radioshow
 CREATE TABLE station
 (
   id integer NOT NULL AUTO_INCREMENT,
+  created_at timestamp NULL,
+  updated_at timestamp NULL,
   name varchar(50),
   description varchar(200),
   PRIMARY KEY (id)
@@ -18,6 +26,8 @@ CREATE TABLE station
 CREATE TABLE observation
 (
   id integer NOT NULL AUTO_INCREMENT,
+  created_at timestamp NULL,
+  updated_at timestamp NULL,
   frequency numeric,
   station_id integer,
   schedule_id integer,
