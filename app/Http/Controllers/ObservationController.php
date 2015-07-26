@@ -28,7 +28,7 @@ class ObservationController extends BaseController
 	public function add()
 	{
 
-		print "what";
+		
 
 	}
 
