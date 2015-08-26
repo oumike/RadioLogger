@@ -1,3 +1,5 @@
+use radiologger;
+
 drop table radioshow;
 drop table station;
 drop table observation;

@@ -13,6 +13,7 @@ class ObservationController extends BaseController
 
 		$stationsAll = Station::all();
 
+		$stations = array();
 		foreach ($stationsAll as $station) {
 			$stations[] = $station->name;
 		}
