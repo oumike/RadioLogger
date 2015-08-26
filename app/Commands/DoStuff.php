@@ -10,9 +10,7 @@ class DoStuff extends Command implements SelfHandling
 {
 
 	/**
-	 * Create a new command instance.
-	 *
-	 * @return void
+	 * Construct
 	 */
 	public function __construct()
 	{

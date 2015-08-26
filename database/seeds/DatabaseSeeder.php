@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Station;
 use App\RadioShow;
 use App\Observation;
+use App\SourceDestination;
+use App\Schedule;
 
 class DatabaseSeeder extends Seeder {
 
@@ -20,23 +22,26 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('UserTableSeeder');
 
-		$stations = Station::all();
-
-		foreach ($stations as $station) {
+		foreach (Station::all() as $station) {
 			$station->delete();
 		}
 
-		$observations = Observation::all();
-
-		foreach ($observations as $observation) {
+		foreach (Observation::all() as $observation) {
 			$observation->delete();
 		}
 
-		$radioShows = RadioShow::all();
-
-		foreach ($radioShows as $radioShow) {
-			$radioshow->delete();
+		foreach (RadioShow::all() as $radioShow) {
+			$radioShow->delete();
 		}
+
+		foreach (SourceDestination::all() as $sd) {
+			$sd->delete();
+		}
+
+		foreach (Schedule::all() as $schedule) {
+			$schedule->delete();
+		}
+
 
 		$s = new Station();
 		$s->name = "Voice of America";
@@ -52,6 +57,44 @@ class DatabaseSeeder extends Seeder {
 		$s->name = "Radio India";
 		$s->description = "Radio India";
 		$s->save();
+
+
+		$s = new SourceDestination();
+		$s->name = "US";
+		$s->save();
+
+		$s = new SourceDestination();
+		$s->name = "China";
+		$s->save();
+
+		$s = new SourceDestination();
+		$s->name = "Canada";
+		$s->save();
+
+		$schedules = array('Cojo Guide to Shortwave', 'Hammertown Shortwave');
+		foreach ($schedules as $schedule) {
+			$s = new Schedule();
+			$s->name = $schedule;
+			$s->year_published = '2015';
+			$s->save();
+		}
+
+		$r = new RadioShow();
+		$r->name = "Jimmys Super Hour";
+		$r->description = "Jimmy rambles.";
+		$r->save();
+
+		$r = new RadioShow();
+		$r->name = "Jonnys Super Hour";
+		$r->description = "Jonny Rambles";
+		$r->save();
+
+		$r = new RadioShow();
+		$r->name = "Cojo Radio Hour";
+		$r->description = "Dont listen if you value your sanity.";
+		$r->save();
+
+
 
 	}
 

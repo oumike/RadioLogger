@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Observation;
+use App\RadioShow;
+use App\Schedule;
+use App\SourceDestination;
 use DateTime;
 use App\Station;
+use Illuminate\Support\Facades\Input;
 
 class ObservationController extends BaseController
 {
@@ -11,17 +16,12 @@ class ObservationController extends BaseController
 	public function index()
 	{
 
-		$stationsAll = Station::all();
-
-		$stations = array();
-		foreach ($stationsAll as $station) {
-			$stations[] = $station->name;
-		}
-
-		$schedules = array('Cojo Guide to Shortwave', 'Hammertown Shortwave');
+		$stations = $this->createSelectArray(Station::all());
+		$radioShows = $this->createSelectArrayWithBlank(RadioShow::all());
+		$schedules = $this->createSelectArrayWithBlank(Schedule::all());
 		$strength = range(1,5);
-		$sources = array('US', 'China', 'Japan');
-		$destinations = array('US', 'China', 'Japan');
+		$sources = $this->createSelectArray(SourceDestination::all());
+		$destinations = $this->createSelectArray(SourceDestination::all());
 		$now = new DateTime();
 
 		return view('observation')
@@ -30,14 +30,57 @@ class ObservationController extends BaseController
 			->with('destinations', $destinations)
 			->with('strength', $strength)
 			->with('schedules', $schedules)
+			->with('radioShows', $radioShows)
 			->with('stations', $stations);
 	}
 
 	public function add()
 	{
 
-		
+		/*
+		<label>Frequency: </label>{!! Form::text('frequency') !!}<br />
+        <label>Station: </label>{!! Form::select('station_id', $stations) !!} <br />
+        <label>Sechedule: </label>{!! Form::select('schedule_id', $schedules) !!}<br />
+        <label>Strength: </label>{!! Form::select('strength', $strength) !!}<br />
+        <label>Description: </label>{!! Form::textarea('description') !!}<br />
+        <label>Source: </label>{!! Form::select('source', $sources) !!}<br />
+        <lable>Date/Time: </lable>{!! Form::text('datetime', $now) !!}
+		*/
 
+		$observation = new Observation();
+		$observation->frequency = Input::get('frequency');
+		$observation->station_id = Input::get('station_id');
+		$observation->schedule_id = Input::get('schedule_id');
+		$observation->strength = Input::get('strength');
+		$observation->description = Input::get('description');
+		$observation->destination = Input::get('destination');
+		$observation->source = Input::get('source');
+		$observation->datetime = Input::get('datetime');
+		$observation->radioshow_id = Input::get('radioshow_id');
+
+		$observation->save();
+
+		return $this->index();
+
+	}
+
+	private function createSelectArray($someEloquentObjects)
+	{
+		$returnArray = array();
+		foreach ($someEloquentObjects as $object) {
+			$returnArray[$object->id] = $object->name;
+		}
+
+		return $returnArray;
+	}
+
+	private function createSelectArrayWithBlank($someEloquentObjects)
+	{
+		$returnArray = array('' => '');
+
+		$returnArray = array_merge($returnArray, $this->createSelectArray($someEloquentObjects));
+
+		return $returnArray;
 	}
 
 }
