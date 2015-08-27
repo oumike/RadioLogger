@@ -37,16 +37,6 @@ class ObservationController extends BaseController
 	public function add()
 	{
 
-		/*
-		<label>Frequency: </label>{!! Form::text('frequency') !!}<br />
-        <label>Station: </label>{!! Form::select('station_id', $stations) !!} <br />
-        <label>Sechedule: </label>{!! Form::select('schedule_id', $schedules) !!}<br />
-        <label>Strength: </label>{!! Form::select('strength', $strength) !!}<br />
-        <label>Description: </label>{!! Form::textarea('description') !!}<br />
-        <label>Source: </label>{!! Form::select('source', $sources) !!}<br />
-        <lable>Date/Time: </lable>{!! Form::text('datetime', $now) !!}
-		*/
-
 		$observation = new Observation();
 		$observation->frequency = Input::get('frequency');
 		$observation->station_id = Input::get('station_id');
@@ -59,6 +49,13 @@ class ObservationController extends BaseController
 		$observation->radioshow_id = Input::get('radioshow_id');
 
 		$observation->save();
+
+		return $this->index();
+
+	}
+
+	public function addStation()
+	{
 
 		return $this->index();
 

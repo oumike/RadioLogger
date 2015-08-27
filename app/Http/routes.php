@@ -16,3 +16,4 @@ Route::get('/', 'FrontController@index');
 
 Route::get('observation', 'ObservationController@index');
 Route::post('observation', 'ObservationController@add');
+Route::post('observation', 'ObservationController@addStation');
