@@ -57,6 +57,23 @@ class ObservationController extends BaseController
 	public function addStation()
 	{
 
+		$station = new Station();
+		$station->name = Input::get('stationName');
+		$station->description = Input::get('stationDescription');
+		$station->save();
+
+		return $this->index();
+
+	}
+
+	public function addRadioShow()
+	{
+
+		$radioShow = new RadioShow();
+		$radioShow->name = Input::get('radioShowName');
+		$radioShow->description = Input::get('radioShowDescription');
+		$radioShow->save();
+
 		return $this->index();
 
 	}

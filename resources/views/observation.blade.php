@@ -11,6 +11,14 @@
                 $('#addObservationForm').submit()
             })
 
+            $('#addRadioShow').click(function() {
+                $('#addRadioShowForm').submit()
+            })
+
+            $('#addStation').click(function() {
+                $('#addStationForm').submit()
+            })
+
             $('#getNow').click(function() {
                 alert('this should populate the datetime with a now timestamp')
             })
@@ -30,7 +38,9 @@
         <label>Station: </label>{!! Form::select('station_id', $stations) !!}
         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addStationModal">Add Station</button>
         <br />
-        <label>Radio Show:</label>{!! Form::select('radioshow_id', $radioShows) !!}<br />
+        <label>Radio Show:</label>{!! Form::select('radioshow_id', $radioShows) !!}
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addRadioShowModal">Add Radio Show</button>
+        <br />
         <label>Sechedule: </label>{!! Form::select('schedule_id', $schedules) !!}<br />
         <label>Strength: </label>{!! Form::select('strength', $strength) !!}<br />
         <label>Description: </label>{!! Form::textarea('description') !!}<br />
@@ -45,6 +55,27 @@
     <input type="button" value="Add" id="addObservation" name="addObservation" />
 
     <!-- Modal -->
+    <div id="addRadioShowModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Radio Show</h4>
+                </div>
+                <div class="modal-body">
+                    {!! Form::open(array('name' => 'addRadioShowForm', 'id' => 'addRadioShowForm', 'action' => 'ObservationController@addRadioShow')) !!}
+                    <label>Name: </label>{!! Form::text('radioShowName', null) !!}<br />
+                    <label>Description: </label>{!! Form::text('radioShowDescription', null) !!}<br />
+                    {!! form::close() !!}
+                    <input type="button" value="Add" id="addRadioShow" name="addRadioShow" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
     <div id="addStationModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -56,9 +87,9 @@
                 <div class="modal-body">
                     {!! Form::open(array('name' => 'addStationForm', 'id' => 'addStationForm', 'action' => 'ObservationController@addStation')) !!}
                     <label>Name: </label>{!! Form::text('stationName') !!}<br />
-                    <label>Description: </label>{!! Form::text('stationdescription') !!}<br />
-                    <input type="button" value="Add" id="addStation" name="addStation" />
+                    <label>Description: </label>{!! Form::text('stationDescription') !!}<br />
                     {!! form::close() !!}
+                    <input type="button" value="Add" id="addStation" name="addStation" />
                 </div>
             </div>
 
