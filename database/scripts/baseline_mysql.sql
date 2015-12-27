@@ -5,15 +5,25 @@ drop table station;
 drop table observation;
 drop table schedule;
 drop table source_destination;
+drop table showlanguage;
 
 CREATE TABLE radioshow
 (
   id integer NOT NULL AUTO_INCREMENT,
   created_at timestamp NULL,
   updated_at timestamp NULL,
-  name varchar(50) NULL,
-  description varchar(200) NULL,
-  language varchar(50) NULL,
+  name varchar(5) NULL,
+  description varchar(50) NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE showlanguage
+(
+  id integer NOT NULL AUTO_INCREMENT,
+  created_at timestamp NULL,
+  updated_at timestamp NULL,
+  name varchar(5) NULL,
+  description varchar(50) NULL,
   PRIMARY KEY (id)
 );
 
