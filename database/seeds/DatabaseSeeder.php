@@ -71,6 +71,7 @@ class DatabaseSeeder extends Seeder {
 		$s->name = "Canada";
 		$s->save();
 
+		// Schedules
 		$schedules = array('Cojo Guide to Shortwave', 'Hammertown Shortwave');
 		foreach ($schedules as $schedule) {
 			$s = new Schedule();
