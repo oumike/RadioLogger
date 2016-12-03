@@ -47,9 +47,10 @@ CREATE TABLE observation
   station_id integer,
   schedule_id integer,
   strength integer,
-  description varchar(200),
-  destination varchar(50),
+  description integer,
+  destination integer,
   source varchar(50),
+  language_id integer,
   datetime timestamp,
   PRIMARY KEY (id)
 );
