@@ -16,7 +16,6 @@ class ObservationController extends BaseController
 	public function index()
 	{
 
-	    // I've added some comments.
 		$stations = $this->createSelectArray(Station::all());
 		$radioShows = $this->createSelectArrayWithBlank(RadioShow::all());
 		$schedules = $this->createSelectArrayWithBlank(Schedule::all());
