@@ -60,6 +60,7 @@ CREATE TABLE source_destination
   id integer NOT NULL AUTO_INCREMENT,
   created_at timestamp NULL,
   updated_at timestamp NULL,
+  short_name varchar(10),
   name varchar(50),
   PRIMARY KEY (id)
 );

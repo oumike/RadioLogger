@@ -60,15 +60,18 @@ class DatabaseSeeder extends Seeder {
 
 
 		$s = new SourceDestination();
-		$s->name = "US";
+		$s->name = "United States";
+		$s->short_name = "USA";
 		$s->save();
 
 		$s = new SourceDestination();
 		$s->name = "China";
+		$s->short_name = "C";
 		$s->save();
 
 		$s = new SourceDestination();
 		$s->name = "Canada";
+		$s->short_name = "CAN";
 		$s->save();
 
 		$schedules = array('Cojo Guide to Shortwave', 'Hammertown Shortwave');
