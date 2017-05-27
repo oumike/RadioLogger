@@ -47,11 +47,11 @@ CREATE TABLE observation
   station_id integer,
   schedule_id integer,
   strength integer,
-  description varchar(50),
-  destination integer null,
-  source integer null,
-  language_id integer null,
-  datetime timestamp null,
+  description integer,
+  destination integer,
+  source varchar(50),
+  language_id integer,
+  datetime timestamp,
   PRIMARY KEY (id)
 );
 
@@ -61,7 +61,6 @@ CREATE TABLE source_destination
   created_at timestamp NULL,
   updated_at timestamp NULL,
   name varchar(50),
-  short_name varchar(5),
   PRIMARY KEY (id)
 );
 
