@@ -51,7 +51,7 @@ CREATE TABLE observation
   destination integer,
   source varchar(50),
   language_id integer,
-  datetime timestamp,
+  datetime timestamp NULL,
   PRIMARY KEY (id)
 );
 
